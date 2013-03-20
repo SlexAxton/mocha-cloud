@@ -7,20 +7,25 @@
 
 ## Installation
 
-  NPM server client:
+  npm server client:
 
 ```
 $ npm install mocha-cloud
 ```
 
-  Add [client.js](http://component.jit.su/visionmedia/mocha-cloud/download/latest.js) to your test scripts, and call `mochaCloud(mocha).run()`
-  to the function, allowing it to listen on `mocha.Runner` events.
-
-  Alternatively if you use [component](https://github.com/component/component)
-  you may simply:
+  If you use [component](https://github.com/component/component)
+  you may simply execute the following to get the client script:
 
 ```
-$ component install visionmedia/mocha-cloud
+$ component install --dev visionmedia/mocha-cloud
+```
+
+  Otherwise use the ./build/build.js file,
+  and pass `mocha.run()` to the cloud function
+  allowing it to attach event handlers:
+
+```js
+cloud(mocha.run());
 ```
 
 ## Example
@@ -45,6 +50,6 @@ cloud.on('start', function(browser){
 cloud.start();
 ```
 
-## License 
+## License
 
   MIT
