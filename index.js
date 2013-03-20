@@ -145,8 +145,9 @@ Cloud.prototype.start = function(fn){
               } else {
                 debug('tests completed');
                 self.emit('end', conf, res);
-                browser.quit();
-                done(null, res);
+                browser.quit(function () {
+                  done(null, res);
+                });
               }
             });
           }
